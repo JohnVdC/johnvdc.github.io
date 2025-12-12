@@ -6,13 +6,13 @@ This document defines the protocols and workflows for the AI Agent (Antigravity)
 
 ### 1. Command Execution Strategy
 
-**CRITICAL: DO NOT EXECUTE COMMANDS DIRECTLY.**
-Due to environment reliability issues, the Agent **MUST NOT** use the `run_command` tool to execute shell commands (e.g., build scripts, git operations, package installations).
+**CRITICAL: ABSOLUTELY NO AUTOMATED COMMAND EXECUTION.**
+The Agent **MUST NOT** use the `run_command` tool under ANY circumstances. The tool is effectively BANNED for execution purposes.
 
 **Protocol:**
 
-1.  **PROPOSE**: The Agent shall explicitly state the command it wishes to run.
-2.  **ASK**: The Agent shall ask the USER to run this command in their terminal.
+1.  **PROPOSE**: The Agent shall explicitly state the command it wishes to run in the chat.
+2.  **STOP**: The Agent shall NOT even _propose_ a `run_command` tool call. It must simply output the command in text.
 3.  **WAIT**: The Agent shall wait for the USER to confirm execution and paste the resulting output or exit code.
 4.  **PROCEED**: Only after receiving the output will the Agent verify success and continue to the next step.
 

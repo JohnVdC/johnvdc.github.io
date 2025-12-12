@@ -1,0 +1,54 @@
+.card {
+  border: 1px solid var(--color-neon-green);
+  background: rgba(5, 5, 5, 0.8);
+  padding: var(--spacing-md);
+  color: var(--color-neon-green);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  background: rgba(57, 255, 20, 0.05);
+  box-shadow: 0 0 15px rgba(57, 255, 20, 0.2);
+  transform: translateY(-2px);
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-cyan);
+}
+
+.description {
+  font-size: 0.9rem;
+  color: var(--color-text-dim);
+  margin-bottom: var(--spacing-md);
+}
+
+.tags {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.tag {
+  font-size: 0.7rem;
+  border: 1px solid var(--color-purple);
+  padding: 2px 6px;
+  color: var(--color-purple);
+}
+
+/* Corner decoration */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background: transparent;
+  border-top: 2px solid var(--color-neon-green);
+  border-right: 2px solid var(--color-neon-green);
+}

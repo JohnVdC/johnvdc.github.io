@@ -1,12 +1,10 @@
 import { AppShell } from "./components/layout/AppShell";
+import { ProjectFeed } from "./components/feed/ProjectFeed";
 
 function App() {
   return (
     <AppShell>
-      <div>
-        <h1>WELCOME TO PROTOCOL 7</h1>
-        <p>AWAITING PROJECTS...</p>
-      </div>
+      <ProjectFeed />
     </AppShell>
   );
 }
