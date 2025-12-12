@@ -32,4 +32,8 @@
     border-bottom: none;
     border-top: 1px solid var(--color-neon-green);
   }
+  
+  .title {
+    font-size: 0.6rem; /* Smaller on mobile */
+  }
 }
