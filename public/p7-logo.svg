@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    text {
+      font-family: monospace;
+      font-weight: bold;
+      fill: #39ff14; /* var(--color-neon-green) */
+      text-shadow: 0 0 4px #39ff14;
+    }
+  </style>
+  <text x="50%" y="55%" font-size="40" text-anchor="middle" dominant-baseline="middle">P7</text>
+</svg>

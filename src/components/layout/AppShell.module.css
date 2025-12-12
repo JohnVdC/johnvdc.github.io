@@ -1,0 +1,26 @@
+.shell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-md);
+  position: relative;
+}
+
+/* Desktop: Menu at Top (Default order) */
+
+/* Mobile: Menu at Bottom */
+@media (max-width: 768px) {
+  .shell {
+    flex-direction: column-reverse; /* Moves the first child (Menu) to the bottom visually if it's first in DOM? No, column-reverse flips standard order. */
+    /* Wait, standard column: [Menu, Content]. 
+       column-reverse: [Content, Menu]. 
+       So if Menu is first in DOM, column-reverse puts it at bottom. Correct. */
+  }
+}
