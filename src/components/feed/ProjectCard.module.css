@@ -1,115 +1,147 @@
+/* Main Container */
 .card {
   position: relative;
   width: 90%;
-  max-width: 320px; /* Mobile safe size */
+  max-width: 320px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background: rgba(10, 10, 10, 0.7);
-  border: 1px solid var(--color-text-dim);
-  padding: var(--spacing-sm);
+  background: #050505;
+  border: 1px solid var(--color-neon-green);
+  padding: 0; /* Content goes to edges */
   transition: all 0.2s ease;
+  font-family: var(--font-mono);
+  overflow: hidden;
 }
 
 @media (min-width: 768px) {
   .card {
     width: 100%;
     max-width: 750px; 
-    padding: var(--spacing-lg) var(--spacing-xxxl); /* Wider frame (padding) */
-    border-width: 2px; /* Thicker border */
   }
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  border-color: var(--color-neon-green);
-  box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.15);
+  transform: translateY(-2px);
 }
 
-.monitorWrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3; /* Typical CRT ratio */
+/* Header Bar */
+.header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--color-neon-green);
+  font-size: 0.8rem;
+  color: var(--color-neon-green);
+  text-transform: uppercase;
+  background: rgba(0, 255, 65, 0.05);
+}
+
+/* Image Area */
+.imageArea {
+  width: 100%;
+  height: 200px;
+  border-bottom: 1px solid var(--color-text-dim);
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      #0a0a0a,
+      #0a0a0a 10px,
+      #111 10px,
+      #111 20px
+    );
+  display: flex;
   align-items: center;
-  margin-bottom: var(--spacing-md);
-}
-
-.frame {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-  pointer-events: none;
-  filter: drop-shadow(0 0 10px rgba(0, 255, 65, 0.2));
-}
-
-.thumbnailContainer {
-  width: 78%; /* Adjusted to fit inside the specific frame asset */
-  height: 70%;
-  background: #111;
-  overflow: hidden;
+  justify-content: center;
   position: relative;
-  z-index: 1;
-  border-radius: 20px; /* Slight curve for CRT screen */
 }
 
-.thumbnail {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.8;
-  mix-blend-mode: luminosity;
-  transition: opacity 0.2s;
+.missingData {
+  color: var(--color-red);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
 }
 
-.card:hover .thumbnail {
-  opacity: 1;
-  mix-blend-mode: normal;
-}
-
-/* Info Section below monitor */
-.info {
-  width: 100%;
-  padding: 0 var(--spacing-sm);
-  text-align: center;
-  margin-bottom: var(--spacing-md);
+/* Content Body */
+.content {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
 }
 
 .title {
-  color: var(--color-neon-green);
+  color: var(--color-cyan);
+  font-size: 1.4rem;
+  font-weight: bold;
   text-transform: uppercase;
-  font-size: 1.1rem;
-  margin-bottom: var(--spacing-xs);
-  text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+  letter-spacing: 1px;
+}
+
+.descriptionWrapper {
+  border-left: 2px solid var(--color-red);
+  padding-left: var(--spacing-md);
+  margin-left: 2px;
+}
+
+.metaInfo {
+  color: var(--color-text-dim);
+  font-size: 0.85rem;
+  margin-bottom: 4px;
 }
 
 .description {
   color: var(--color-text-dim);
-  font-size: 0.8rem;
-  line-height: 1.2;
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 
-/* Execute Button */
-/* Execute Button */
+/* Tags */
+.tags {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+}
+
+.tag {
+  color: var(--color-neon-green);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.tag::before {
+  content: '>> ';
+}
+
+/* Button */
 .button {
+  margin-top: var(--spacing-md);
   background: transparent;
-  border: 1px solid transparent; /* Match System Root default */
-  color: var(--color-cyan);      /* Match System Root default */
+  border: 1px solid var(--color-cyan);
+  color: var(--color-cyan);
   font-family: var(--font-mono);
-  padding: var(--spacing-sm) var(--spacing-lg);
+  padding: 12px 24px;
   font-weight: bold;
   cursor: pointer;
   text-transform: uppercase;
+  width: fit-content;
   transition: all 0.2s;
 }
 
 .button:hover {
-  color: var(--color-neon-green);
-  border-color: var(--color-neon-green);
-  box-shadow: 0 0 10px rgba(57, 255, 20, 0.2);
-  background: rgba(57, 255, 20, 0.05); /* Match System Root hover */
+  background: rgba(0, 255, 255, 0.1);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+  text-shadow: 0 0 5px var(--color-cyan);
+}
+
+/* Corner decoration bottom right */
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  border-bottom: 2px solid var(--color-neon-green);
+  border-right: 2px solid var(--color-neon-green);
 }

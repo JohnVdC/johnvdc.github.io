@@ -11,6 +11,10 @@
 
 body {
   background-color: var(--color-bg);
+  background-image: 
+    linear-gradient(rgba(0, 255, 65, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 65, 0.02) 1px, transparent 1px);
+  background-size: 30px 30px;
   color: var(--color-neon-green);
   font-family: var(--font-mono);
   font-size: 18px;
