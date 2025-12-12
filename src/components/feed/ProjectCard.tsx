@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import type { Project } from "../../types/Project";
 import styles from "./ProjectCard.module.css";
 
@@ -7,6 +8,16 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+  const navigate = useNavigate();
+
+  const handleExecute = () => {
+    if (project.route) {
+      navigate(project.route);
+    } else {
+      console.log("EXECUTE:", project.id);
+    }
+  };
+
   return (
     <article className={styles.card}>
       <div className={styles.monitorWrapper}>
@@ -32,10 +43,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         <p className={styles.description}>{project.description}</p>
       </div>
 
-      <button
-        className={styles.button}
-        onClick={() => console.log("EXECUTE:", project.id)}
-      >
+      <button className={styles.button} onClick={handleExecute}>
         [ EXECUTE ]
       </button>
     </article>
