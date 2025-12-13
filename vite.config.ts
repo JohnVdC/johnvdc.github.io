@@ -1,5 +1,5 @@
 /// <reference types="vitest" />
-import { defineConfig } from 'vitest/config'
+import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 
 import path from "path";
@@ -7,15 +7,16 @@ import path from "path";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: "/Protocol7/",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
   test: {
-    environment: 'jsdom',
+    environment: "jsdom",
     globals: true,
-    setupFiles: './src/setupTests.ts',
-    include: ['src/**/*.test.ts'],
+    setupFiles: "./src/setupTests.ts",
+    include: ["src/**/*.test.ts"],
   },
 });
