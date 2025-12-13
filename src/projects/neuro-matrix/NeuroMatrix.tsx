@@ -34,6 +34,9 @@ export const NeuroMatrix: React.FC = () => {
       <header className={styles.header}>
         <h1 className={styles.title}>NEURO MATRIX</h1>
         <div className={styles.score}>SYNCHRONIZATION: {visitCount}%</div>
+        <div className={styles.rules}>
+          [ RULES: JUMP 3 STRAIGHT OR 2 DIAGONAL ]
+        </div>
       </header>
 
       <div className={styles.grid}>
