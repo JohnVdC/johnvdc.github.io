@@ -11,7 +11,6 @@ export const NeuroMatrix: React.FC = () => {
     startGame,
     makeMove,
     getValidMoves,
-    GRID_SIZE,
   } = useNeuroMatrix();
 
   // Start game on mount
