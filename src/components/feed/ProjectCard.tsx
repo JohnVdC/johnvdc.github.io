@@ -22,14 +22,21 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     <article className={styles.card}>
       {/* Header Bar */}
       <div className={styles.header}>
-        <span>ID: {project.id.toUpperCase().replace("PROJ-", "0xFF")}</span>
+        <span>ID: {project.id}</span>
         <span>{project.status.toUpperCase()}</span>
       </div>
 
       {/* Image Area */}
       <div className={styles.imageArea}>
-        {/* We can restore the thumbnail logic later if needed */}
-        <span className={styles.missingData}>[IMAGE DATA MISSING]</span>
+        {project.thumbnail ? (
+          <img
+            src={project.thumbnail}
+            alt={project.title}
+            className={styles.thumbnailImage}
+          />
+        ) : (
+          <span className={styles.missingData}>[IMAGE DATA MISSING]</span>
+        )}
       </div>
 
       {/* Body */}

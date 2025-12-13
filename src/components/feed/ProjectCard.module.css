@@ -33,7 +33,7 @@
   border-bottom: 1px solid var(--color-neon-green);
   font-size: 0.8rem;
   color: var(--color-neon-green);
-  text-transform: uppercase;
+  /* text-transform: uppercase;  <-- Removed to allow 0x01 casing */
   background: rgba(0, 255, 65, 0.05);
 }
 
@@ -60,6 +60,20 @@
   color: var(--color-red);
   font-size: 0.9rem;
   letter-spacing: 1px;
+}
+
+.thumbnailImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* or contain, depending on preference. Cover is usually better for filling the card */
+  opacity: 0.8;
+  mix-blend-mode: luminosity; /* Keeps it looking techy/integrated */
+  transition: all 0.2s;
+}
+
+.card:hover .thumbnailImage {
+  opacity: 1;
+  mix-blend-mode: normal;
 }
 
 /* Content Body */
