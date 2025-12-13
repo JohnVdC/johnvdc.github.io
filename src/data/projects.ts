@@ -8,7 +8,7 @@ export const PROJECTS: Project[] = [
     status: "active",
     tags: ["PUZZLE", "LOGIC", "GRID"],
     route: "/neuro-matrix",
-    thumbnail: "/assets/neuro-matrix-thumb.png",
+    thumbnail: "./assets/neuro-matrix-thumb.png",
   },
   {
     id: "0x02",
