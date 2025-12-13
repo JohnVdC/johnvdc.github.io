@@ -1,0 +1,115 @@
+/* Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%; /* Fill available space */
+  padding: var(--spacing-lg);
+  font-family: var(--font-mono);
+}
+
+.header {
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+}
+
+.title {
+  color: var(--color-neon-green);
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: 0 0 10px var(--color-neon-green);
+}
+
+.score {
+  color: var(--color-cyan);
+  font-size: 1.2rem;
+  margin-top: var(--spacing-sm);
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 2px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--color-text-dim);
+  padding: 4px;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+}
+
+/* Cell */
+.cell {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-text-dim);
+  font-size: 0.8rem;
+  cursor: default;
+  transition: all 0.2s;
+  user-select: none;
+}
+
+/* Cell States */
+.visited {
+  background: rgba(0, 255, 65, 0.2);
+  color: var(--color-neon-green);
+  box-shadow: inset 0 0 5px rgba(0, 255, 65, 0.3);
+}
+
+.current {
+  background: var(--color-cyan);
+  color: var(--color-bg);
+  box-shadow: 0 0 10px var(--color-cyan);
+  z-index: 10;
+  animation: pulse 1.5s infinite;
+}
+
+.valid {
+  cursor: pointer;
+  background: rgba(255, 191, 0, 0.1); /* Amber low opacity */
+  border: 1px dashed var(--color-amber);
+  animation: validPulse 2s infinite ease-in-out;
+}
+
+.valid:hover {
+  background: rgba(255, 191, 0, 0.3);
+  box-shadow: 0 0 15px var(--color-amber);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 5px var(--color-cyan); }
+  50% { box-shadow: 0 0 15px var(--color-cyan); }
+  100% { box-shadow: 0 0 5px var(--color-cyan); }
+}
+
+@keyframes validPulse {
+  0% { box-shadow: 0 0 2px var(--color-amber); opacity: 0.8; }
+  50% { box-shadow: 0 0 8px var(--color-amber); opacity: 1; }
+  100% { box-shadow: 0 0 2px var(--color-amber); opacity: 0.8; }
+}
+
+/* Status Messages */
+.status {
+  margin-top: var(--spacing-lg);
+  height: 24px;
+  color: var(--color-red);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.status.won {
+  color: var(--color-neon-green);
+}
+.footer {
+  height: 60px; /* Reserve space for button */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--spacing-md);
+}
